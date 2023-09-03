@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double frecuenciasonido = 1000.0; // Frecuencia en Hz 
+    double velocidadobservador = 0.0;
+    double velocidadsonido = 343.0; // Velocidad del sonido en el aire
+    double velocidademisor;
+    double frecuencia1, frecuencia2, frecuencia3, frecuencia4;
+    int ans;
+
+    std::cout << "Hola. Vamos a simular el efecto Doppler!" << std::endl;
+
+    do {
+        std::cout << "Elige la opción que quieras simular" << std::endl;
+        std::cout << "1. El emisor se acerca al receptor" << std::endl;
+        std::cout << "2. El emisor se aleja del receptor" << std::endl;
+        std::cout << "3. Los dos se mueven hacia el mismo lado" << std::endl;
+        std::cout << "4. Los dos se mueven en sentido contrario" << std::endl;
+        std::cout << "5. Salir" << std::endl;
+        std::cin >> ans;
+        // Preguntamos cual caso de simulación desea el usuario y definimos la entrada para el switch 
+
+        switch (ans) {
+            case 1:
+                std::cout << "Ingresa la velocidad del emisor: ";
+                std::cin >> velocidademisor;
+                frecuencia1 = std::fabs(frecuenciasonido * (velocidadobservador + velocidadsonido) / (velocidadobservador - velocidademisor));
+                std::cout << "La frecuencia resultante cuando el emisor se acerca al receptor es: " << frecuencia1 << " Hz" << std::endl;
+                break;
+                //Se utiliza "Std::fabs" para obtener el valor absoluto en la respuesta de la formula 
+                //Definimos la formula para el caso 1
+             case 2:
+                std::cout << "Ingresa la velocidad a la que se aleja el emisor: ";
+                std::cin >> velocidademisor;
+                frecuencia2 = std::fabs(frecuenciasonido * (velocidadobservador - velocidadsonido) / (velocidadobservador + velocidademisor));
+                std::cout << "La frecuencia resultante cuando el emisor se aleja del receptor es: " << frecuencia2 << " Hz" << std::endl;
+                break;
+                //Definimos la formula para el caso 2
+            case 3:
+                std::cout << "Ingresa la velocidad a la que se mueve el emisor: ";
+                std::cin >> velocidademisor;
+                frecuencia3 = std::fabs(frecuenciasonido * (velocidadobservador - velocidadsonido) / (velocidadobservador - velocidademisor));
+                std::cout << "La frecuencia resultante cuando ambos se mueven hacia el mismo lado es: " << frecuencia3 << " Hz" << std::endl;
+                break;
+            case 4:
+                std::cout << "Ingresa la velocidad a la que se mueve el emisor: ";
+                std::cin >> velocidademisor;
+                frecuencia4 = std::fabs(frecuenciasonido * (velocidadobservador + velocidadsonido) / (velocidadobservador + velocidademisor));
+                std::cout << "La frecuencia resultante cuando ambos se mueven en sentido contrario es: " << frecuencia4 << " Hz" << std::endl;
+                break;
+            case 5:
+                
+                break;
+            default:
+                std::cout << "Opción no válida. Por favor, elige una opción válida." << std::endl;
+                break;
+        }
+    } while (ans != 5); 
+    //Se utilizó un do- while para que se repita el switch hasta que se elija la opción 5
+
+    return 0;
+}
