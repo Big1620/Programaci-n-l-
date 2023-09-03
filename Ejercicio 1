@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+//Se incluyen librerias para poder declarar las variables string y usar la función PI 
+int main() {
+    double radio, altura, area, vol;
+    
+    std::string ex,ans;
+//Se declaran las variables 
+    do {
+        std::cout << "Vamos a calcular el volumen y el área de tu cilindro!" << std::endl;
+        std::cout << "Ingresa el radio de tu cilindro: ";
+        std::cin >> radio;
+        std::cout << "Ingresa la altura de tu cilindro: ";
+        std::cin >> altura;
+        if (radio < 0 || vol < 0 ){ 
+            std::cout << "No hay areas ni volúmenes negativos. Ingresa valores validos." ;
+            std::cout << "Deseas ingresar otros valores?" ;
+        // Este if se utiliza para validar los valores negativos ingresados    
+            std::cin >> ans;
+            if ((ans != "No") && (ans !="nO" ) && (ans != "NO")){ 
+                continue;
+        //Este if nos permite voler al comienzo del ciclo si el usuario ingresa una respuesta afirmativa
+            } else { break;};
+        //Esta Función rompe el ciclo 
+
+        };
+        
+        area = 2 * M_PI * radio * (radio + altura);
+        vol = M_PI * radio * radio * altura;
+        std::cout << "El área máxima de tu cilindro es: " << area << " Unidades cuadradas. " << " El volumen máximo de tu cilindro es: " << vol << " Unidades Cúbicas. "<< std::endl;
+
+        std::cout << " ¿Deseas ingresar un radio u volúmen diferente? Si/No: ";
+        std::cin >> ex;
+
+    } while (ex != "no" && ex != "No" && ex != "nO" && ex != "NO");
+    // Se utiliza un do while para que repita al usuario cuando quire dejar de ingresar valores para calcular. 
+    // El simbolo && se utiiza para combinar condiciones  
+
+    return 0;
+}
