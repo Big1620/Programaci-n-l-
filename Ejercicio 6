@@ -1,0 +1,46 @@
+#include <iostream> 
+#include <cmath>
+#include <string>
+
+int main(){
+    int peso;
+    double estatura,imc;
+    //Inicializamos variables necesarias para el programa 
+    std::string ans;
+    //Variable para controlar el while
+
+    do
+    {
+    std::cout<< "Bienvenido! vamos a calcular tu indice de masa corporal"<<std::endl;
+    std::cout<< "Ingresa tu peso actual en Kg"<<std::endl;
+    std::cin>> peso;
+    std::cout<< "Ingresa tu estatura en metros"<< std::endl;
+    std::cin>> estatura; 
+    imc = peso / (estatura*estatura);
+    //Definimos la variable con la formula necesaria 
+
+    std::cout<< "Su indice de masa corporal es de: " << imc << std::endl; 
+    std::cout<< "------------------------------ | --------------------------------- "<<std::endl;
+    std::cout<< "      Composición corporal    |   Indice de masa corporal (IMC)  " << std::endl;
+    std::cout<< "      Peso inferior al normal  |    Menos de 18.5                  "<< std::endl;
+    std::cout<< "      Peso normal              |    18.5 - 24.9                    " <<std::endl;
+    std::cout<< "      Peso superior al normal  |    25.0 - 29.9                    "<< std::endl;
+    std::cout<< "      Obesidad                 |    Más de 30.0                    "<< std::endl;
+    std::cout<< "------------------------------ | ----------------------------------"<< std::endl; 
+    //Imprimimos los datos de IMC y una tabla para comparar el IMC dados 
+    std::cin.ignore();
+    //Con esta funcion ignoraremos la siguiente linea de entrada para que se pueda continuar con un enter
+    std::cout<< "Presiona enter para continuar"<<std::endl;
+    getchar();
+    //Esta funcion permite continuar dandole enter
+    std::cout <<"Desea ingresar otros datos? (Si/No)"<<std::endl;
+    std::cin>> ans; 
+    //Respuesta de entrada para continuar con el problama 
+    } while ((ans != "No") && (ans != "no") && (ans != "nO"));
+    //Ciclo para controlar el bucle del programa si es diferente a No se continuará con el programa 
+    
+    
+    
+    
+    return 0;
+}
