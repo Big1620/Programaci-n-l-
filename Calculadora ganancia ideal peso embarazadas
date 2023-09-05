@@ -1,0 +1,187 @@
+#include <iostream> 
+#include <cmath>
+#include <string>
+
+int main(){
+    int peso;
+    double estatura,imc,pweek,pesoid;
+    //Inicializamos variables necesarias para el programa 
+    std::string ans,ans2;
+    //Variable para controlar el while
+
+    do
+    {
+    std::cout<< "Bienvenido! vamos a calcular tu indice de masa corporal"<<std::endl;
+    std::cout<< "Ingresa tu peso actual en Kg"<<std::endl;
+    std::cin>> peso;
+    std::cout<< "Ingresa tu estatura en metros"<< std::endl;
+    std::cin>> estatura; 
+    imc = peso / (estatura*estatura);
+    //Definimos la variable con la formula necesaria 
+
+    std::cout<< "Su indice de masa corporal es de: " << imc << std::endl; 
+    std::cout<< "------------------------------ | --------------------------------- "<<std::endl;
+    std::cout<< "      Composición corporal    |   Indice de masa corporal (IMC)  " << std::endl;
+    std::cout<< "      Peso inferior al normal  |    Menos de 18.5                  "<< std::endl;
+    std::cout<< "      Peso normal              |    18.5 - 24.9                    " <<std::endl;
+    std::cout<< "      Peso superior al normal  |    25.0 - 29.9                    "<< std::endl;
+    std::cout<< "      Obesidad                 |    Más de 30.0                    "<< std::endl;
+    std::cout<< "------------------------------ | ----------------------------------"<< std::endl; 
+    //Imprimimos los datos de IMC y una tabla para comparar el IMC dados 
+    std::cin.ignore();
+    //Con esta funcion ignoraremos la siguiente linea de entrada para que se pueda continuar con un enter
+    std::cout<< "Presiona enter para continuar"<<std::endl;
+    std::getchar();
+    //Esta funcion permite continuar dandole enter
+
+    std::cout<< "¿Estás embarazada?(Si/No)"<< std::endl; 
+    std::cin>>ans2;
+    //Le pregunta al usuario si está en estado de embarazo y admite una respuesta tipo string 
+        if ((ans2 !="No" )&& (ans2 !="nO") && (ans2 !="no")){
+     //el if se utiliza para validar la respuesta y pasar a la siguiente gama de respuestas    
+        std::cout<< "Vamos a calcular tu ganancia ideal de peso durante el embarazo!"<<std::endl;
+        std::cout<< "Ingresa las semanas que llevas en embarazo"<<std::endl;
+        std::cin>> pweek; 
+    //Pregunta las semanas de gestación de la usuaria 
+            if (imc<=18.5){
+    //Este if nos permite hacer el calculo basados en el imc correspondiente            
+                if (pweek >= 1 && pweek <= 12) {
+    //este if nos permite validar la semana de gestación para hacer el calculo correspondiente         
+                    std::cout << "Felicidades! Estás en el primer trimestre" << std::endl;
+                 pesoid= 0.5 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                    }else if (pweek >= 13 && pweek <= 27) {
+                    std::cout << "Felicidades! Estás en el segundo trimestre" << std::endl;
+                    pesoid= 0.35 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+
+                    } else if (pweek >= 28 && pweek <= 40) {
+                         std::cout << "Felicidades! Estás en el tercer trimestre" << std::endl;
+                        pesoid= 0.35 * pweek;
+                        std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                                                }
+                        else{
+                            std::cout<<"Valor invalido. Ingrese una semana valida"; 
+                            continue;
+                }
+    
+                std::cout<< "Según tu IMC el peso aconsejable que debes ganar es de 12,5 a 18Kg"<<std::endl;
+                std::cout<< "------------------------------| --------------------------------- "<<std::endl;
+                std::cout<< "      Clasificación (IMC)    |   Ganancia de peso ideal   " << std::endl;
+                std::cout<< "      Menos de 18.5           |   12.5 - 18Kg              "<< std::endl;
+                std::cout<< "      18.5 - 24.9             |   11,5 - 16 Kg                    " <<std::endl;
+                std::cout<< "      25.0 - 29.9             |    7 - 11,5 Kg                     "<< std::endl;
+                std::cout<< "      Más de 30.0            |    5 - 9 Kg                        "<< std::endl;
+                std::cout<< "------------------------------| ----------------------------------"<< std::endl; 
+        
+    
+            }
+            else if ((imc>=18.5) && (imc<=24.9)){
+                if (pweek >= 1 && pweek <= 12) {
+    //este if nos permite validar la semana de gestación para hacer el calculo correspondiente de los kg que deba aumentar por semana         
+                    std::cout << "Felicidades! Estás en el primer trimestre" << std::endl;
+                 pesoid= 0.5 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                    }else if (pweek >= 13 && pweek <= 27) {
+                    std::cout << "Felicidades! Estás en el segundo trimestre" << std::endl;
+                    pesoid= 0.35 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid <<"Kg"<< std::endl;
+
+                    } else if (pweek >= 28 && pweek <= 40) {
+                         std::cout << "Felicidades! Estás en el tercer trimestre" << std::endl;
+                        pesoid= 0.35 * pweek;
+                        std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                                                }
+                        else{
+                            std::cout<<"Valor invalido. Ingrese una semana valida"; 
+                            continue;
+                }
+                std::cout<< "Según tu IMC el peso aconsejable que debes ganar es de 11,5 - 16 kg "<<std::endl;
+                std::cout<< "------------------------------| --------------------------------- "<<std::endl;
+                std::cout<< "      Clasificación (IMC)    |   Ganancia de peso ideal   " << std::endl;
+                std::cout<< "      Menos de 18.5           |   12.5 - 18Kg              "<< std::endl;
+                std::cout<< "      18.5 - 24.9             |   11,5 - 16 Kg                    " <<std::endl;
+                std::cout<< "      25.0 - 29.9             |    7 - 11,5 Kg                     "<< std::endl;
+                std::cout<< "      Más de 30.0            |    5 - 9 Kg                        "<< std::endl;
+                std::cout<< "------------------------------| ----------------------------------"<< std::endl;
+                  
+            }else if ((imc>=25) && (imc<=29.9)){
+                if (pweek >= 1 && pweek <= 12) {
+    //este if nos permite validar la semana de gestación para hacer el calculo correspondiente         
+                    std::cout << "Felicidades! Estás en el primer trimestre" << std::endl;
+                 pesoid= 0.5 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                    }else if (pweek >= 13 && pweek <= 27) {
+                    std::cout << "Felicidades! Estás en el segundo trimestre" << std::endl;
+                    pesoid= 0.35 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+
+                    } else if (pweek >= 28 && pweek <= 40) {
+                         std::cout << "Felicidades! Estás en el tercer trimestre" << std::endl;
+                        pesoid= 0.35 * pweek;
+                        std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                                                }
+                        else{
+                            std::cout<<"Valor invalido. Ingrese una semana valida"; 
+                            continue;
+                }
+                std::cout<< "Según tu IMC el peso aconsejable que debes ganar es de 7 - 11,5 kg "<<std::endl;
+                std::cout<< "------------------------------| --------------------------------- "<<std::endl;
+                std::cout<< "      Clasificación (IMC)    |   Ganancia de peso ideal   " << std::endl;
+                std::cout<< "      Menos de 18.5           |   12.5 - 18Kg              "<< std::endl;
+                std::cout<< "      18.5 - 24.9             |   11,5 - 16 Kg                    " <<std::endl;
+                std::cout<< "      25.0 - 29.9             |    7 - 11,5 Kg                     "<< std::endl;
+                std::cout<< "      Más de 30.0            |    5 - 9 Kg                        "<< std::endl;
+                std::cout<< "------------------------------| ----------------------------------"<< std::endl;
+
+             }else if(imc>=30.0){
+               if (pweek >= 1 && pweek <= 12) {
+    //este if nos permite validar la semana de gestación para hacer el calculo correspondiente de los kg que deba aumentar por semana         
+                    std::cout << "Felicidades! Estás en el primer trimestre" << std::endl;
+                 pesoid= 0.5 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                    }else if (pweek >= 13 && pweek <= 27) {
+                    std::cout << "Felicidades! Estás en el segundo trimestre" << std::endl;
+                    pesoid= 0.35 * pweek;
+                    std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid <<"Kg"<< std::endl;
+
+                    } else if (pweek >= 28 && pweek <= 40) {
+                         std::cout << "Felicidades! Estás en el tercer trimestre" << std::endl;
+                        pesoid= 0.35 * pweek;
+                        std::cout <<"El peso ideal a ganar  según tu trimestre es de: "<< pesoid<<"Kg" << std::endl;
+                                                }
+                        else{
+                            std::cout<<"Valor invalido. Ingrese una semana valida"; 
+                            continue;
+                }
+                std::cout<< "Según tu IMC el peso aconsejable que debes ganar es de 5 - 9 kg"<<std::endl;
+                std::cout<< "------------------------------| --------------------------------- "<<std::endl;
+                std::cout<< "      Clasificación (IMC)    |   Ganancia de peso ideal   " << std::endl;
+                std::cout<< "      Menos de 18.5           |   12.5 - 18Kg              "<< std::endl;
+                std::cout<< "      18.5 - 24.9             |   11,5 - 16 Kg                    " <<std::endl;
+                std::cout<< "      25.0 - 29.9             |    7 - 11,5 Kg                     "<< std::endl;
+                std::cout<< "      Más de 30.0            |    5 - 9 Kg                        "<< std::endl;
+                std::cout<< "------------------------------| ----------------------------------"<< std::endl;
+
+             }
+            
+       
+
+    
+
+
+
+
+                std::cout <<"Desea ingresar otros datos? (Si/No)"<<std::endl;
+                std::cin>> ans; 
+    //Respuesta de entrada para continuar con el problama 
+    }}while (ans == "Si" || ans == "si" || ans == "Sí" || ans == "sí");
+    //Ciclo para controlar el bucle del programa si es igual a No se continuará con el programa 
+    
+    
+    
+    
+ return 0;
+}   
+    
+ 
